@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:image" content="https://github.com/BrunoSobrino.png">
+    <title>API | Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta property="og:image" content="https://github.com/BrunoSobrino.png">
+    <title>API | BrunoSobrino</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+    <script>
+        if (localStorage.getItem("token")) {
+            window.location.href = "/docs";
+        }
+    </script>
+</head>
+<body>
+
+   <!-- Formularios -->
+    <div class="contenedor-formularios">
+        <!-- Links de los formularios -->
+        <ul class="contenedor-tabs">
+            <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+            <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
+        </ul>
+
+        <!-- Contenido de los Formularios -->
+        <div class="contenido-tab">
+            <!-- Iniciar Sesion -->
+            <div id="iniciar-sesion">
+                <h1>Iniciar Sesión</h1>
+                <form action="#" method="post" id="logg">
+                    <div class="contenedor-input">
+                        <label>
+                            Correo <span class="req">*</span>
+                        </label>
+                        <input type="text" required id="logmail">
+                    </div>
+
+                    <div class="contenedor-input">
+                        <label>
+                            Contraseña <span class="req">*</span>
+                        </label>
+                        <input type="password" required id="logpass">
+                    </div>
+                    <p class="forgot"><a href="javascript:void(0);" onclick="requestReset()">Se te olvidó la contraseña?</a></p>
+                    <!--<p class="forgot"><a href="#" onclick="requestReset()">Se te olvidó la contraseña?</a></p> -->
+                    <input type="submit" class="button button-block" value="Iniciar Sesión">
+                </form>
+            </div>
+
+            <!-- Registrarse -->
+            <div id="registrarse">
+                <h1>Registrarse</h1>
+                <form action="#" method="post" id="regg">
+                    <div class="contenedor-input">
+                            <label>
+                                Email <span class="req">*</span>
+                            </label>
+                        <input type="email" required id="regmail">
+                    </div>
+                    <div class="contenedor-input">
+                        <label>
+                            Contraseña <span class="req">*</span>
+                        </label>
+                        <input type="password" required id="reggpass">
+                    </div>
+
+                    <div class="contenedor-input">
+                        <label>
+                            Repetir Contraseña <span class="req">*</span>
+                        </label>
+                        <input type="password" required id="reggpass2">
+                    </div>
+
+                    <input type="submit" class="button button-block" value="Registrarse" id="submitButton">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Contenedor de Contacto -->
+    <div class="contenedor-contacto">
+        <div class="contacto-info">
+            <a href="https://wa.me/5219996125657" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://github.com/BrunoSobrino" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.paypal.com/paypalme/TheShadowBrokers133" target="_blank"><i class="fab fa-paypal"></i></a>
+        </div>
+    </div>        
+   <script>
+
+    async function requestReset() {
+      if (!logmail.value) {
+        alert("[❗] Ingrese su correo");
+        return;
+      }
+                
+      if (window.recaptchaKey) {
+        grecaptcha.ready(function() {
+          grecaptcha.execute(window.recaptchaKey, {action: 'submit'}).then(function(token) {
+            fetch("/api/manageusers/requestReset", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                mail: logmail.value,
+                recaptchaVerify: token
+              })
+            })
+              .then(response => response.json())
+              .then(data => {
+                if (!data.status) {
+                  alert(data.message);
+                } else {
+                  alert(data.message);
+                }
+              })
+              .catch(error => {
+                alert("[⚠️] Error en el registro, reporte el error en Github.");
+              });
+          });
+        });
+      } else {
+        fetch("/api/manageusers/requestReset", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            mail: logmail.value
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (!data.status) {
+              alert(data.message);
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch(error => {
+            alert("[⚠️] Error en el registro, reporte el error en Github.");
+          });
+      }
+    }
+
+    regg.addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (reggpass.value !== reggpass2.value) {
+    alert("[❗] Las contraseñas no coinciden.");
+    return;
+  }
+
+  if (reggpass.value.length < 8) {
+    alert("[❗] La contraseña debe tener al menos 8 caracteres.");
+    return;
+  }        
+        
+  if (window.recaptchaKey) {
+
+  grecaptcha.ready(function() {
+          grecaptcha.execute(window.recaptchaKey, {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+
+  fetch("/api/manageusers/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      mail: regmail.value,
+      password: btoa(reggpass.value),
+      recaptchaVerify: token
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.status) {
+        alert(data.message);
+      } else if (reggpass.value.length < 8) {
+          alert("[❗] La contraseña debe tener al menos 8 caracteres.");
+          return;    
+      } else {
+        alert(data.message);
+        window.location.reload()
+      }
+    })
+    .catch(error => {
+      alert("[⚠️] Error en el registro, reporte el error en Github.");
+    });
+});
+});
+
+} else {
+  fetch("/api/manageusers/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      mail: regmail.value,
+      password: btoa(reggpass.value)
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.status) {
+        alert(data.message);
+      } else {
+        alert("[❗] Usuario registrado con éxito, revise su bandeja de entrada o de spam en su correo para validarlo.");
+        window.location.reload()
+      }
+    })
+    .catch(error => {
+      alert("[⚠️] Error en el registro, reporte el error en Github.");
+    });
+    }
+
+        });
+logg.addEventListener("submit", function(event) {
+  event.preventDefault();
+    
+  fetch("/api/manageusers/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      mail: logmail.value,
+      password: btoa(logpass.value)
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (!data.status) {
+        alert(data.message);
+      } else {
+        localStorage.setItem("token", data.token);
+        window.location.href = "/docs";
+      }
+    })
+    .catch(error => {
+      alert("[⚠️] Error en el login, reporte el error en Github.");
+    });    
+});
+
+fetch("/api/manageusers/fetchRecaptcha").then(response => response.json()).then(data => {
+  if (!data.status) return;
+  window.recaptchaKey = data.sitekey;
+  let recap = document.createElement("script")
+  recap.src = "https://www.google.com/recaptcha/api.js?render=" + data.sitekey;
+  document.head.appendChild(recap);
+
+});
+   </script>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <script>
+    $(document).ready(function(){
+        $('.tab a').on('click', function (e) {
+            e.preventDefault();
+
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+
+            target = $(this).attr('href');
+
+            $('.contenido-tab > div').not(target).hide();
+
+            $(target).fadeIn(600);
+
+        });
+})
+   </script>
+   <script>
+    $(document).ready(function(){
+        $('.tab a').on('click', function (e) {
+            e.preventDefault();
+
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+
+            target = $(this).attr('href');
+
+            $('.contenido-tab > div').not(target).hide();
+
+            $(target).fadeIn(600);
+
+        });
+})
+   </script>
+
+</body>
+</html>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -112,8 +112,8 @@ router.post('/register', async (req, res) => {
                 <p>Si no has solicitado este correo, simplemente ignóralo.</p>
                 <p>¡Gracias!</p>
                 <div class="signature">
-                <p><strong>The Shadow Brokers - TEAM</strong></p>
-                <p><strong>Bruno Sobrino</strong></p>
+                <p><strong>Ochoa21</strong></p>
+                <p><strong>Ochoa</strong></p>
                 </div>
                 </div>
                 </body>
@@ -253,8 +253,8 @@ router.post('/requestReset', async (req, res) => {
             <p>Si no has solicitado restablecer tu contraseña, simplemente ignora este correo.</p>
             <p>¡Gracias!</p>
             <div class="signature">
-            <p><strong>The Shadow Brokers - TEAM</strong></p>
-            <p><strong>Bruno Sobrino</strong></p>
+            <p><strong>Ochoa21</strong></p>
+            <p><strong>Ochoa</strong></p>
             </div>
             </div>
             </body>

@@ -74,35 +74,6 @@ async function gpt(content, senderName = 'null', prompt, lenguaje = 'es') {
     status: true,
     resultado: "",
   };
-  /*let url = 'https://c3.a0.chat/v1/chat/gpt/';
-  let headers = {
-    'Content-Type': 'application/json',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 11; M2004J19C Build/RP1A.200720.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.129 Mobile Safari/537.36 WhatsApp/1.2.3',
-    'Referer': 'https://c3.a0.chat/#/web/chat'
-  }
-  const datos = {
-    list: [
-      {
-        content: content,
-        role: "user",
-        nickname: senderName,
-        time: "2023-9-19 14:30:08",
-        isMe: true,
-        index: 0
-      }
-    ],
-    id: 1695108574472,
-    title: "BrunoSobrino & Samuel - Dev",
-    time: "2023-9-19 14:29:34",
-    prompt: prompt,
-    models: 0,
-    temperature: 0,
-    continuous: true
-  }
-  try {
-    let ress = await axios.post(url, datos, { headers });
-    result.resultado = ress.data
-  } catch {*/
   try {
     let resultadoApi3 = await fetch(`https://deliriusapi-official.vercel.app/ia/gptprompt?text=${content}&prompt=${prompt}`)
     const resultado_Api3 = await resultadoApi3.json()

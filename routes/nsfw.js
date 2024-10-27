@@ -6,7 +6,7 @@ const { RandomAgresivo } = require('./func/functions');
 
 router.get('/nsfwass', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwass.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwass.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -28,7 +28,7 @@ router.get('/nsfwass', async (req, res) => {
 
 router.get('/nsfwbdsm', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwbdsm.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwbdsm.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -50,7 +50,7 @@ router.get('/nsfwbdsm', async (req, res) => {
 
 router.get('/nsfwcum', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwcum.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwcum.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -72,7 +72,7 @@ router.get('/nsfwcum', async (req, res) => {
 
 router.get('/ecchi', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/ecchi.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/ecchi.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -94,7 +94,7 @@ router.get('/ecchi', async (req, res) => {
 
 router.get('/nsfwero', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwero.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwero.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -116,7 +116,7 @@ router.get('/nsfwero', async (req, res) => {
 
 router.get('/nsfwfemdom', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwfemdom.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwfemdom.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -138,7 +138,7 @@ router.get('/nsfwfemdom', async (req, res) => {
 
 router.get('/nsfwfoot', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwfoot.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwfoot.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -160,7 +160,7 @@ router.get('/nsfwfoot', async (req, res) => {
 
 router.get('/nsfwglass', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwglass.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwglass.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -182,7 +182,7 @@ router.get('/nsfwglass', async (req, res) => {
 
 router.get('/hentai', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/hentai.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/hentai.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -204,7 +204,7 @@ router.get('/hentai', async (req, res) => {
 
 router.get('/nsfwloli', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfwloli.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfwloli.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -226,7 +226,7 @@ router.get('/nsfwloli', async (req, res) => {
 
 router.get('/nsfworgy', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/nsfworgy.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/nsfworgy.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -248,7 +248,7 @@ router.get('/nsfworgy', async (req, res) => {
 
 router.get('/nsfwtrap', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/trapito.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/trapito.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -270,7 +270,7 @@ router.get('/nsfwtrap', async (req, res) => {
 
 router.get('/yaoi', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/yaoi.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/yaoi.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
@@ -292,7 +292,7 @@ router.get('/yaoi', async (req, res) => {
 
 router.get('/yuri', async (req, res) => {
   try {
-    const response = await axios.get('https://raw.githubusercontent.com/BrunoSobrino/api/main/data/yuri.json');
+    const response = await axios.get('https://raw.githubusercontent.com/Ochoa21/api/main/data/yuri.json');
     const data = response.data;
     let imageUrl = null;
     while (!imageUrl) {
